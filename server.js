@@ -1,15 +1,15 @@
 const express = require("express");
 const app = express();
 const { v4: uuidV4 } = require("uuid");
-const fs = require("fs");
-const options = {
-  key: fs.readFileSync("key.pem"),
-  cert: fs.readFileSync("cert.pem"),
-};
+// const fs = require("fs");
+// const options = {
+//   key: fs.readFileSync("key.pem"),
+//   cert: fs.readFileSync("cert.pem"),
+// };
 
-let port = process.env.PORT || 3000
+let port = process.env.PORT || 3805
 
-const server = require("https").createServer(options,app).listen(port,() =>{
+const server = require("http").createServer(app).listen(port,() =>{
     console.log("Port : ",port);
 });
 const io = require("socket.io")(server);
